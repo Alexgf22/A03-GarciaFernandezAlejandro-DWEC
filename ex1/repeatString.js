@@ -1,10 +1,21 @@
-function repeatingString(n) {
+function generateString() {
+    let userString = document.getElementById("userString").value;
+    let resultElement = document.getElementById("result");
+
+    // Validate that the entry is not empty
+    if (userString.trim() === "") {
+        alert("Please enter a non-empty string.");
+        return;
+    }
+
+    let result = repeatingString(userString, 5);
+    resultElement.textContent = result;
+}
+
+function repeatingString(str, n) {
     if (n === 0) {
         return "";
     }
-    
-    return "bauuuba " + repeatingString(n - 1);
-}
 
-let result = repeatingString(5);
-document.getElementById("result").innerHTML = result;
+    return str + " " + repeatingString(str, n - 1);
+}
