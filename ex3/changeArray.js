@@ -15,12 +15,32 @@ function sortArrayAsc(arr) {
     return arr;
 }
 
-let inputMatrix = [[5, 4, 6], [2, 9, 3], [8, 1, 7]];
+function processMatrix() {
+    let input = document.getElementById("matrixInput").value;
 
-let flattenedArray = flattenMatrix(inputMatrix);
-let sortedArray = sortArrayAsc(flattenedArray);
+    if (input.trim() === "") {
+        alert("Please enter a non-empty matrix.");
+        return;
+    }
 
-document.getElementById("sorted-array").innerHTML = `
-    <h2>Sorted Array</h2>
-    <pre>[${sortedArray.join(', ')}]</pre>
-`;
+    try {
+        
+        let matrix = JSON.parse(input);
+
+        if (!Array.isArray(matrix) || matrix.some(subArr => !Array.isArray(subArr))) {
+            alert("Invalid input. Please enter a valid matrix in the format [[...], [...], ...].");
+            return;
+        }
+
+        let flattenedArray = flattenMatrix(matrix);
+        let sortedArray = sortArrayAsc(flattenedArray);
+
+        let sortedArrayElement = document.getElementById("sorted-array");
+        sortedArrayElement.innerHTML = `
+            <h2>Sorted Array</h2>
+            <pre>[${sortedArray.join(', ')}]</pre>
+        `;
+    } catch (error) {
+        alert("Invalid input. Please enter a valid matrix in the format [[...], [...], ...].");
+    }
+}

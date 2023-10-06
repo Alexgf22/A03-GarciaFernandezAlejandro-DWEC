@@ -1,6 +1,6 @@
 const Ghost = {
-    colors: ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'yellow', 'black', 'white', 'gray'],
-    darkColors: ['blue', 'purple', 'green', 'gray', 'black'],
+    colors: ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'yellow', 'black', 'coral', 'gray', 'cyan', 'beige', 'lime', 'teal'],
+    darkColors: ['blue', 'purple', 'green', 'gray', 'black', 'teal'],
     usedIndexes: [],
     getRandomColor: function() {
         if (this.usedIndexes.length === this.colors.length) {
