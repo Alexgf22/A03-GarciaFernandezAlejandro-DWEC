@@ -41,6 +41,14 @@ class Wallet {
     totalMoney() {
         return (this._fiveEuroBills * 5) + (this._tenEuroBills * 10) + (this._twentyEuroBills * 20);
     }
+
+    displayContents() {
+        return `Contents of ${this._name}:
+            5 Euro bills: ${this._fiveEuroBills}
+            10 Euro bills: ${this._tenEuroBills}
+            20 Euro bills: ${this._twentyEuroBills}
+            Total money: ${this.totalMoney()} euros`;
+    }
 }
 
 function mostMoney(wallets) {
@@ -72,3 +80,11 @@ let result = mostMoney(wallets);
 
 let outputElement = document.getElementById('output');
 outputElement.innerHTML = `The wallet with the most money is: ${result}`;
+
+let walletContentsElement = document.getElementById('walletContents');
+for (let wallet of wallets) {
+    walletContentsElement.innerHTML += `<p>${wallet.displayContents()}</p>`;
+}
+
+
+
